@@ -4,13 +4,11 @@ import bodyanimation from '../assets/bodyanimation.json';
 const BodyBackground = () => {
   return (
     <>
-    
     <Lottie
       animationData={bodyanimation}
       loop={true}
       autoplay={true}
     />
-    
     </>
     
   );

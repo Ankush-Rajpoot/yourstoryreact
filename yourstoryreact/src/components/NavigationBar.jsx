@@ -9,14 +9,6 @@ import logo from  'C:/Users/Lenovo/OneDrive/Desktop/c++/.vscode/yourstory/yourst
 import logo1 from  'C:/Users/Lenovo/OneDrive/Desktop/c++/.vscode/yourstory/yourstoryimages/logo1.png'
 
 function NavigationBar() {
-    window.onload = function() {
-        // Hide the logo after a certain delay (e.g., 2 seconds) and display the content
-        setTimeout(function() {
-          document.getElementById('logo-container').style.display = 'none';
-          document.getElementById('content').style.display = 'block';
-        }, 1000); // Adjust delay as needed (in milliseconds)
-    };
-
     useGSAP(() => {
         var tl=gsap.timeline();
         tl.from(".logo",{
@@ -25,7 +17,7 @@ function NavigationBar() {
             duration:1,
             delay:2,
         })
-        tl.from("nav ul li",{
+        tl.from("nav ul li button",{
             opacity:0,
             y:-30,
             duration:1,
@@ -46,22 +38,19 @@ function NavigationBar() {
             </div>
             <ul>
             <li>
-                <a href="about.html">About</a>
+                <button id='AboutUs'>About</button>
             </li>
             <li>
-                <a href="write.html">Write</a>
+                <button id='Write'>Write</button>
             </li>
             <li>
-                <a href="read.html">Read</a>
+                <button id='Read'>Read</button>
             </li>
             <li>
-                <a href="login.html">Login</a>
-            </li>
-            <li>
-                <a href="signup.html">Sign Up</a>
+            <button id='Login/SignUp'>Login/SignUp</button>
             </li>
             <li className="profile">
-                <a href="profile.html">Profile</a>
+                
             </li>
             </ul>
         </nav>
