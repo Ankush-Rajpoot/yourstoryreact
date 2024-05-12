@@ -5,8 +5,14 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(useGSAP);
 
 //importing the images
+
+import logo from "../yourstoryimages/logo.png";
+import logo1 from "../yourstoryimages/logo1.png";
+import { Link } from "react-router-dom";
+=======
 import logo from  'C:/Users/Lenovo/OneDrive/Desktop/c++/.vscode/yourstory/yourstoryimages/logo.png'
 import logo1 from  'C:/Users/Lenovo/OneDrive/Desktop/c++/.vscode/yourstory/yourstoryimages/logo1.png'
+
 
 function NavigationBar() {
     useGSAP(() => {
@@ -44,7 +50,13 @@ function NavigationBar() {
                 <button id='Write'>Write</button>
             </li>
             <li>
+
+              <Link className={"link-styles"} to="/categories">
+                Read
+              </Link>
+
                 <button id='Read'>Read</button>
+
             </li>
             <li>
               <button id="Login/SignUp">Login/SignUp</button>

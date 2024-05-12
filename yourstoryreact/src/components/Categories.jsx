@@ -1,3 +1,6 @@
+
+import React from "react";
+=======
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 
@@ -17,7 +20,17 @@ function Categories({ isOpen, closeModal }) {
     closeModal();
   };
 
+
   return (
+
+    <>
+      <h1>Categories</h1>
+    </>
+  );
+}
+
+export default Categories;
+
     <Modal
       isOpen={isOpen}
       onRequestClose={closeModal}
@@ -47,3 +60,4 @@ function Categories({ isOpen, closeModal }) {
   );
 }
 export default Categories
+
