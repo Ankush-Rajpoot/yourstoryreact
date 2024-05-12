@@ -1,4 +1,6 @@
 import React from 'react'
+import Categories from './Categories';
+
 //importing gsap library 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -8,7 +10,10 @@ gsap.registerPlugin(useGSAP);
 import logo from  'C:/Users/Lenovo/OneDrive/Desktop/c++/.vscode/yourstory/yourstoryimages/logo.png'
 import logo1 from  'C:/Users/Lenovo/OneDrive/Desktop/c++/.vscode/yourstory/yourstoryimages/logo1.png'
 
+
+
 function NavigationBar() {
+    
     useGSAP(() => {
         var tl=gsap.timeline();
         tl.from(".logo",{
@@ -26,6 +31,9 @@ function NavigationBar() {
         })
     });
    
+
+    
+
     return (
         <>
         <div id="logo-container">
@@ -41,10 +49,10 @@ function NavigationBar() {
                 <button id='AboutUs'>About</button>
             </li>
             <li>
-                <button id='Write'>Write</button>
+                <button id='Write' onClick={Categories.handleModalOpen}>Write</button>
             </li>
             <li>
-                <button id='Read'>Read</button>
+                <button id='Read' onClick={Categories.handleModalOpen}>Read</button>
             </li>
             <li>
             <button id='Login/SignUp'>Login/SignUp</button>
