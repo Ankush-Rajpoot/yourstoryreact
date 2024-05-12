@@ -2,9 +2,7 @@ import React from "react";
 //importing gsap library
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-gsap.registerPlugin(useGSAP);
-
-//importing the images
+import Categories from "./Categories";
 
 import logo from "../yourstoryimages/logo.png";
 import logo1 from "../yourstoryimages/logo1.png";

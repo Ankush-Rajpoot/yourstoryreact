@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "@gsap/react": "^2.1.1",
     "@lottiefiles/react-lottie-player": "^3.5.3",
+    "@mui/material": "^5.15.17",
     "gsap": "^3.12.5",
     "lottie-player": "^1.0.0",
     "lottie-react": "^2.4.0",

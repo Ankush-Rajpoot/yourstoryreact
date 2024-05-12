@@ -14,6 +14,8 @@ function App() {
         {/* <Route index element={<BodyBackground />}></Route> */}
         <Route path="/categories" element={<Categories />}></Route>
       </Routes>
+
+      {/* <AboutUs/> */}
     </>
   );
 }
