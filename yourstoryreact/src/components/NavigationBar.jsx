@@ -1,6 +1,4 @@
 import React from 'react'
-import Categories from './Categories';
-
 //importing gsap library 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -10,10 +8,7 @@ gsap.registerPlugin(useGSAP);
 import logo from  'C:/Users/Lenovo/OneDrive/Desktop/c++/.vscode/yourstory/yourstoryimages/logo.png'
 import logo1 from  'C:/Users/Lenovo/OneDrive/Desktop/c++/.vscode/yourstory/yourstoryimages/logo1.png'
 
-
-
 function NavigationBar() {
-    
     useGSAP(() => {
         var tl=gsap.timeline();
         tl.from(".logo",{
@@ -31,9 +26,6 @@ function NavigationBar() {
         })
     });
    
-
-    
-
     return (
         <>
         <div id="logo-container">
@@ -41,30 +33,28 @@ function NavigationBar() {
         </div>
         <div id='content'>
         <nav>
-            <div className="logo">
+          <div className="logo">
             <img src={logo} alt="YourStory Logo" />
-            </div>
-            <ul>
+          </div>
+          <ul>
             <li>
-                <button id='AboutUs'>About</button>
-            </li>
-            <li>
-                <button id='Write' onClick={Categories.handleModalOpen}>Write</button>
+              <button id="AboutUs">About</button>
             </li>
             <li>
-                <button id='Read' onClick={Categories.handleModalOpen}>Read</button>
+                <button id='Write'>Write</button>
             </li>
             <li>
-            <button id='Login/SignUp'>Login/SignUp</button>
+                <button id='Read'>Read</button>
             </li>
-            <li className="profile">
-                
+            <li>
+              <button id="Login/SignUp">Login/SignUp</button>
             </li>
-            </ul>
+            <li className="profile"></li>
+          </ul>
         </nav>
-        </div>
-        </>
-    )
+      </div>
+    </>
+  );
 }
 
-export default NavigationBar
+export default NavigationBar;
