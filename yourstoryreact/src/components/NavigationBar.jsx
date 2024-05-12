@@ -7,6 +7,7 @@ gsap.registerPlugin(useGSAP);
 //importing the images
 import logo from "../yourstoryimages/logo.png";
 import logo1 from "../yourstoryimages/logo1.png";
+import { Link } from "react-router-dom";
 function NavigationBar() {
   useGSAP(() => {
     var tl = gsap.timeline();
@@ -43,7 +44,9 @@ function NavigationBar() {
               <button id="Write">Write</button>
             </li>
             <li>
-              <button id="Read">Read</button>
+              <Link className={"link-styles"} to="/categories">
+                Read
+              </Link>
             </li>
             <li>
               <button id="Login/SignUp">Login/SignUp</button>
