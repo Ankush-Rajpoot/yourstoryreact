@@ -1,18 +1,25 @@
-import React, { useEffect } from 'react';
-import './App.css'
-// import BodyBackground from './components/BodyBackground';
-import NavigationBar from './components/NavigationBar';
-import Categories from './components/Categories';
 
-
-function App(){
+import React, { useEffect } from "react";
+import "./App.css";
+import BodyBackground from "./components/BodyBackground";
+import NavigationBar from "./components/NavigationBar";
+import Categories from "./components/Categories";
+import HomePage from "./components/HomePage";
+import { Routes, Route } from "react-router-dom";
+function App() {
   return (
     <>
     {/* <BodyBackground/> */}
-    <NavigationBar />
-    <Categories/>
+    <Routes>
+        <Route path="/" element={<NavigationBar />}></Route>
+        {/* <Route index element={<BodyBackground />}></Route> */}
+        <Route path="/categories" element={<Categories />}></Route>
+      </Routes>
+
+      {/* <AboutUs/> */}
     </>
   );
-}
+  }
+
 
 export default App;

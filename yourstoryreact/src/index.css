@@ -1,15 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body{
+body {
   margin: 0;
   padding: 10;
   font-family: Arial, sans-serif;
-  background-color: rgb(0, 0, 0);
-  color: white;
-  
+  background-color: white;
+  color: black;
 }
-
 
 /* Hide Profile option by default */
 .profile {
