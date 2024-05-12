@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import "./App.css";
 import BodyBackground from "./components/BodyBackground";
@@ -15,21 +14,6 @@ function App() {
         {/* <Route index element={<BodyBackground />}></Route> */}
         <Route path="/categories" element={<Categories />}></Route>
       </Routes>
-
-      {/* <AboutUs/> */}
-
-import React, { useEffect } from 'react';
-import './App.css'
-// import BodyBackground from './components/BodyBackground';
-import NavigationBar from './components/NavigationBar';
-
-
-function App(){
-  return (
-    <>
-    {/* <BodyBackground/> */}
-    <NavigationBar />
-
     </>
   );
 }
