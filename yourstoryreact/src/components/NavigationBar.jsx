@@ -1,14 +1,22 @@
-import React from "react";
-//importing gsap library
+import React, { useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Categories from "./Categories";
 
 import logo from "../yourstoryimages/logo.png";
 import logo1 from "../yourstoryimages/logo1.png";
-import { Link } from "react-router-dom";
 
-function NavigationBar() {
+const NavigationBar = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalIsOpen(false);
+  };
+
   useGSAP(() => {
     var tl = gsap.timeline();
     tl.from(".logo", {
@@ -41,12 +49,14 @@ function NavigationBar() {
               <button id="AboutUs">About</button>
             </li>
             <li>
-              <button id="Write">Write</button>
+              <button id="Write" onClick={handleOpenModal}>
+                Write
+              </button>
             </li>
             <li>
-              <Link className={"link-styles"} to="/categories">
+              <button id="Read" onClick={handleOpenModal}>
                 Read
-              </Link>
+              </button>
             </li>
             <li>
               <button id="Login/SignUp">Login/SignUp</button>
@@ -55,8 +65,9 @@ function NavigationBar() {
           </ul>
         </nav>
       </div>
+      <Categories open={modalIsOpen} handleClose={handleCloseModal} />
     </>
   );
-}
+};
 
 export default NavigationBar;

@@ -8,8 +8,8 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
-      {/* <BodyBackground/> */}
-      <Routes>
+    {/* <BodyBackground/> */}
+    <Routes>
         <Route path="/" element={<NavigationBar />}></Route>
         {/* <Route index element={<BodyBackground />}></Route> */}
         <Route path="/categories" element={<Categories />}></Route>
@@ -18,6 +18,7 @@ function App() {
       {/* <AboutUs/> */}
     </>
   );
-}
+  }
+
 
 export default App;
