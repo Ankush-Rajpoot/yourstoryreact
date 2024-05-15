@@ -1,14 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 #logo-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #ffffff; 
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,22 +62,20 @@ nav ul li button {
   font-weight: bold;
   position: relative;
 }
-nav ul li button:hover{
+nav ul li button:hover {
   background-color: rgb(20, 20, 206);
   color: white;
   border-radius: 10;
 }
 
-Modal{
+Modal {
   background-color: #ffffff;
-
 }
 .btn {
   border-radius: 5px;
   background-color: rgb(28, 25, 25);
   padding: 1em;
   color: #ffffff;
-
 }
 
 /* Modal Styles */
@@ -117,5 +111,6 @@ Modal{
   display: block;
   margin: 20px 0 0 auto;
 }
-
-
+.LoginPage {
+  color: #ffffff;
+}
