@@ -18,10 +18,11 @@ const categories = [
   { id: 13, name: 'Humor' },
   { id: 14, name: 'Pottery' },
   { id: 15, name: 'LGBTQ+' },
-  { id: 16, name: 'Romance' },
-  { id: 17, name: 'Leadership' },
-  { id: 18, name: 'Health' },
-  // Add more categories here
+  { id: 16, name: 'Leadership' },
+  { id: 17, name: 'Health' },
+  { id: 18, name: 'Cooking' },
+  { id: 19, name: 'Bravery'},
+  { id: 20, name: 'Family'},
 ];
 
 function CategoriesRead({ open, handleCloseModalRead, anchorButtonId }) {
