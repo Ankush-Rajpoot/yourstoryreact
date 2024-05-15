@@ -72,50 +72,40 @@ nav ul li button:hover{
   border-radius: 10;
 }
 
-Modal{
-  background-color: #ffffff;
-
-}
-.btn {
+td {
   border-radius: 5px;
-  background-color: rgb(28, 25, 25);
+  background-color: rgb(37, 34, 34);
   padding: 1em;
   color: #ffffff;
-
+  margin: 10px;
+  border: 5px rgb(255, 255, 255) solid;
 }
-
-/* Modal Styles */
-.modal {
-  position: absolute;
-  background-color: white;
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  transform: translate(-50%, 0);
+td:hover{
+  background-color: rgb(20, 20, 206);
 }
-
-/* Table Styles */
-.modal table {
-  width: 100%;
-  border-collapse: collapse;
+.Modalbtn{
+  color: rgb(255, 255, 255);
 }
-
-.modal table td {
-  padding: 10px;
+#categories-modal-title{
+  color: rgb(255, 255, 255);
+  background-color:  rgb(0, 122, 255);
   text-align: center;
-  width: 25%; /* Ensure equal size for each table data */
+  border-radius: 20px;
+  /* border:2px black solid; */
 }
 
-/* Button Styles */
-.modal .btn button {
-  width: 100%;
-  height: 50px; /* Equal size for all buttons */
-  margin: 5px 0; /* Gap between buttons */
+.modal-close-button,
+.modal-write-button {
+  color: white;
+  background-color: rgb(0, 122, 255);
+  border: 2px white solid;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-/* Close Button Styles */
-.modal .close-button {
-  display: block;
-  margin: 20px 0 0 auto;
+ .modal-close-button:hover,
+ .modal-write-button:hover {
+  background-color: rgb(20, 20, 206);
 }
-
-

@@ -58,26 +58,27 @@ function CategoriesWrite({ open, handleCloseModalWrite, anchorButtonId }) {
     >
       <div style={modalStyle}>
         <h2 id="categories-modal-title">Categories</h2>
-        <table style={tableStyle}>
+        <table  style={tableStyle}>
           <tbody>
             {rows.map((row, rowIndex) => (
-              <tr id='tablerow' key={rowIndex}>
+              <tr  id='tablerow' key={rowIndex}>
                 {row.map((category) => (
-                  <td class='btn' key={category.id}>
-                    <Button onClick={() => console.log(category.name)}>{category.name}</Button>
+                  <td  class='btn' key={category.id}>
+                    <Button class='Modalbtn' onClick={() => console.log(category.name)}>{category.name}</Button>
                   </td>
                 ))}
                 {row.length < columnCount && (
                   // Add empty cells to fill up the row
                   Array.from({ length: columnCount - row.length }, (_, index) => (
-                    <td key={`empty-${index}`} />
+                    <td  key={`empty-${index}`} />
                   ))
                 )}
               </tr>
             ))}
           </tbody>
         </table>
-        <Button onClick={handleCloseModalWrite}>Close</Button>
+        <Button class='modal-close-button' onClick={handleCloseModalWrite}>Close</Button>
+        <Button class='modal-write-button'>Write</Button>
       </div>
     </Modal>
   );
