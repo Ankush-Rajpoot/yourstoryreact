@@ -4,8 +4,8 @@ import { useGSAP } from "@gsap/react";
 import CategoriesWrite from './CategoriesWrite'; // Updated import
 import CategoriesRead from './CategoriesRead'; // Updated import
 
-import logo from "../yourstoryimages/logo.png";
-import logo1 from "../yourstoryimages/logo1.png";
+import logo from "../assets/yourstoryimages/logo.png";
+import logo1 from "../assets/yourstoryimages/logo1.png";
 
 const NavigationBar = () => {
     const [modalIsOpenWrite, setModalIsOpenWrite] = useState(false);
