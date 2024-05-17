@@ -10,7 +10,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
-      { <BodyBackground/>}
+      {/* { <BodyBackground/>} */}
       <Routes>
         <Route path="/" element={<NavigationBar />}></Route>
         {/* <Route index element={<BodyBackground />}></Route> */}
