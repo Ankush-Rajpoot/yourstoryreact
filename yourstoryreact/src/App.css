@@ -1,10 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 #logo-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: #ffffff; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,29 +66,22 @@ nav ul li button {
   font-weight: bold;
   position: relative;
 }
-nav ul li button:hover {
+nav ul li button:hover{
   background-color: rgb(20, 20, 206);
   color: white;
   border-radius: 10;
 }
 
-<<<<<<< HEAD
+
+
+/* read and write modal  */
 td {
-=======
-Modal {
-  background-color: #ffffff;
-}
-.btn {
->>>>>>> 21ae274498343b9a9479852a20e211a71c6793cf
   border-radius: 5px;
   background-color: rgb(37, 34, 34);
   padding: 1em;
   color: #ffffff;
-<<<<<<< HEAD
   margin: 10px;
   border: 5px rgb(255, 255, 255) solid;
-=======
->>>>>>> 21ae274498343b9a9479852a20e211a71c6793cf
 }
 td:hover{
   background-color: rgb(20, 20, 206);
@@ -111,18 +108,65 @@ td:hover{
   transition: background-color 0.3s;
 }
 
-<<<<<<< HEAD
  .modal-close-button:hover,
  .modal-write-button:hover {
   background-color: rgb(20, 20, 206);
 }
-=======
-/* Close Button Styles */
-.modal .close-button {
-  display: block;
-  margin: 20px 0 0 auto;
+
+#modal-close-button{
+  color: white;
+  background-color: rgb(0, 122, 255);
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
-.LoginPage {
-  color: #ffffff;
+#modal-close-button:hover{
+ background-color: rgb(20, 20, 206);
 }
->>>>>>> 21ae274498343b9a9479852a20e211a71c6793cf
+
+
+
+
+/* login and signup modal */
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  width: 400px;
+  max-width: 80%;
+  outline: none;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+} 
+
+#modal-submit-button{
+  background-color: #4CAF50;
+  color: white;
+}
+#modal-submit-button:hover{
+  background-color: #439245;
+}
+
+.toggle-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#toggle-button {
+  color: rgb(0, 122, 255);
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  margin: 0;
+}
+#toggle-button:hover{
+  color:rgb(20, 20, 206);
+}

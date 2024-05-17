@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import CategoriesWrite from "./CategoriesWrite"; // Updated import
 import CategoriesRead from "./CategoriesRead"; // Updated import
 import { Link } from "react-router-dom";
+import AuthModal from "./LoginSignUp";
 
 import logo from "../assets/yourstoryimages/logo.png";
 import logo1 from "../assets/yourstoryimages/logo1.png";
@@ -11,6 +12,14 @@ import logo1 from "../assets/yourstoryimages/logo1.png";
 const NavigationBar = () => {
   const [modalIsOpenWrite, setModalIsOpenWrite] = useState(false);
   const [modalIsOpenRead, setModalIsOpenRead] = useState(false);
+
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+
+  const handleAuthOpen = () => setIsAuthModalOpen(true);
+  const handleAuthClose = () => setIsAuthModalOpen(false);
+
+
+
 
   const handleOpenModalWrite = () => {
     setModalIsOpenWrite(true);
@@ -67,14 +76,8 @@ const NavigationBar = () => {
               </button>
             </li>
             <li>
-              <button id="Login/SignUp">
-                <Link to="/LoginPage">Login</Link>
-              </button>
-            </li>
-            <li>
-              <button id="Login/SignUp">
-                <Link to="SignUpPage">SignUp</Link>
-              </button>
+              <button id="Login/SignUp" onClick={handleAuthOpen}>Login/SignUp</button>
+              <AuthModal open={isAuthModalOpen} handleClose={handleAuthClose} />
             </li>
             <li className="profile"></li>
           </ul>
