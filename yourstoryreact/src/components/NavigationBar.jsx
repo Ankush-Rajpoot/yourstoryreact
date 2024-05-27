@@ -18,9 +18,6 @@ const NavigationBar = () => {
   const handleAuthOpen = () => setIsAuthModalOpen(true);
   const handleAuthClose = () => setIsAuthModalOpen(false);
 
-
-
-
   const handleOpenModalWrite = () => {
     setModalIsOpenWrite(true);
   };
@@ -76,7 +73,9 @@ const NavigationBar = () => {
               </button>
             </li>
             <li>
-              <button id="Login/SignUp" onClick={handleAuthOpen}>Login/SignUp</button>
+              <button id="Login/SignUp" onClick={handleAuthOpen}>
+                Login/SignUp
+              </button>
               <AuthModal open={isAuthModalOpen} handleClose={handleAuthClose} />
             </li>
             <li className="profile"></li>
