@@ -1,6 +1,10 @@
 import React from 'react';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
+
+
+
 
 const categories = [
   { id: 1, name: 'Thrill' },
@@ -26,6 +30,7 @@ const categories = [
 ];
 
 function CategoriesWrite({ open, handleCloseModalWrite, anchorButtonId }) {
+  // const history = useHistory();
   const anchorButton = document.getElementById(anchorButtonId);
   const buttonRect = anchorButton?.getBoundingClientRect();
 
@@ -64,7 +69,10 @@ function CategoriesWrite({ open, handleCloseModalWrite, anchorButtonId }) {
               <tr  id='tablerow' key={rowIndex}>
                 {row.map((category) => (
                   <td  class='btn' key={category.id}>
-                    <Button class='Modalbtn' onClick={() => console.log(category.name)}>{category.name}</Button>
+                    <Button class='Modalbtn' onClick={() => console.log(category.name)}><Link to={`/writestory/${category.id}/${category.name}`}>{category.name}</Link></Button>
+                    {/* <Button class='Modalbtn' onClick={() => history.push(`/write/${category.id}`)}>
+                      {category.name}
+                    </Button> */}
                   </td>
                 ))}
                 {row.length < columnCount && (

@@ -59,7 +59,7 @@ const NavigationBar = () => {
       <div className="navContent" id="content">
         <nav>
           <div className="logo">
-            <img src={logo} alt="YourStory Logo" />
+            <img src={logo1} alt="YourStory Logo" />
           </div>
           <ul>
             <li>
