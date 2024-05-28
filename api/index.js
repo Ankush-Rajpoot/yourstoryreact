@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
 mongoose.connect(
-  "mongodb+srv://nakesh1107:nU9W6K0IVOl4qS9E@cluster0.cgenlzm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  "mongodb+srv://ankushrajpoot2004:2W58oeRRz1K9ZQku@cluster0.orplaxw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 );
 
 app.post("/register", uploadMiddleware.single("file"), async (req, res) => {
@@ -113,6 +113,9 @@ app.listen(4000, () => {
   console.log("Server is running on port http://localhost:4000");
 });
 
-//MongoDb pass:nU9W6K0IVOl4qS9E
-//Username: nakesh1107
-// mongodb+srv://nakesh1107:nU9W6K0IVOl4qS9E@cluster0.cgenlzm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+//MongoDb pass:Ankush@2004
+//Username: ankushrajpoot2004
+// mongodb+srv://ankushrajpoot2004:Ankush@2004@cluster0.dagoaet.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+
+// 2W58oeRRz1K9ZQku
