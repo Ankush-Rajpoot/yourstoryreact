@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import { UserContext } from "./UserContext";
 
 function LoginSignUp({ open, handleClose }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -9,12 +10,14 @@ function LoginSignUp({ open, handleClose }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
+  const [files, setFiles] = useState(null);
+  const { setUserInfo } = useContext(UserContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (isLogin) {
-      console.log("Login:", "Username:", username, "Password:", password);
+      // console.log("Login:", "Username:", username, "Password:", password);
 
       const loginResponse = await fetch("http://localhost:4000/login", {
         method: "POST",
@@ -24,7 +27,10 @@ function LoginSignUp({ open, handleClose }) {
       });
 
       if (loginResponse.ok) {
-        setRedirect(true);
+        loginResponse.json().then((userInfo) => {
+          setUserInfo(userInfo);
+          setRedirect(true);
+        });
       } else {
         console.log("wrong login credentials: ");
       }
@@ -40,14 +46,21 @@ function LoginSignUp({ open, handleClose }) {
         "Email:",
         email,
         "Password:",
-        password
+        password,
+        "files",
+        files
       );
+      const data = new FormData();
+      data.set("username", username);
+      data.set("email", email);
+      data.set("password", password);
+      data.set("file", files[0]);
 
       try {
         await fetch("http://localhost:4000/register", {
           method: "POST",
-          body: JSON.stringify({ username, email, password }),
-          headers: { "Content-Type": "application/json" },
+          body: data,
+          // headers: { "Content-Type": "application/json" },
         });
       } catch (error) {
         console.log("Error in registration: ", error);
@@ -69,6 +82,10 @@ function LoginSignUp({ open, handleClose }) {
       <div className="modal">
         <h2>{isLogin ? "Login" : "Signup"}</h2>
         <form onSubmit={handleSubmit}>
+          {!isLogin && (
+            <input type="file" onChange={(ev) => setFiles(ev.target.files)} />
+          )}
+
           <TextField
             label="Username"
             value={username}
@@ -78,15 +95,17 @@ function LoginSignUp({ open, handleClose }) {
             required
           />
           {!isLogin && (
-            <TextField
-              label="Email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              fullWidth
-              margin="normal"
-              required
-            />
+            <>
+              <TextField
+                label="Email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                fullWidth
+                margin="normal"
+                required
+              />
+            </>
           )}
 
           <TextField

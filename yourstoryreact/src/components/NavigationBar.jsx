@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CategoriesWrite from "./CategoriesWrite"; // Updated import
@@ -8,8 +8,28 @@ import AuthModal from "./LoginSignUp";
 
 import logo from "../assets/yourstoryimages/logo.png";
 import logo1 from "../assets/yourstoryimages/logo1.png";
-
+import { UserContext } from "./UserContext";
 const NavigationBar = () => {
+  const { setUserInfo, userInfo } = useContext(UserContext);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/profile", {
+      credentials: "include",
+    }).then((response) => {
+      response.json().then((userInfo) => {
+        setUserInfo(userInfo.username);
+      });
+    });
+  }, []);
+
+  function logout() {
+    fetch("http://localhost:4000/logout", {
+      credentials: "include",
+      method: "POST",
+    });
+    setUserInfo(null);
+  }
+
   const [modalIsOpenWrite, setModalIsOpenWrite] = useState(false);
   const [modalIsOpenRead, setModalIsOpenRead] = useState(false);
 
@@ -48,6 +68,8 @@ const NavigationBar = () => {
     });
   });
 
+  const username = userInfo?.username;
+
   return (
     <>
       <div id="logo-container">
@@ -72,13 +94,29 @@ const NavigationBar = () => {
                 Read
               </button>
             </li>
-            <li>
-              <button id="Login/SignUp" onClick={handleAuthOpen}>
-                Login/SignUp
-              </button>
-              <AuthModal open={isAuthModalOpen} handleClose={handleAuthClose} />
-            </li>
-            <li className="profile"></li>
+            {username && (
+              <>
+                <button id="Profile">
+                  <Link to="/userDetails">Profile</Link>
+                </button>
+                <button id="Logout" onClick={logout}>
+                  Logout
+                </button>
+              </>
+            )}
+            {!username && (
+              <>
+                <li>
+                  <button id="Login/SignUp" onClick={handleAuthOpen}>
+                    Login/SignUp
+                  </button>
+                  <AuthModal
+                    open={isAuthModalOpen}
+                    handleClose={handleAuthClose}
+                  />
+                </li>
+              </>
+            )}
           </ul>
         </nav>
       </div>
