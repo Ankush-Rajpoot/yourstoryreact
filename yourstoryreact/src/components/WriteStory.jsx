@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 
 function WriteStory() {
   const { categoryName } = useParams();
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [content, setContent] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Title:', title);
-    console.log('Description:', description);
-    console.log('Content:', content);
-    console.log('Category:', categoryName);
+    console.log("Title:", title);
+    console.log("Description:", description);
+    console.log("Content:", content);
+    console.log("Category:", categoryName);
   };
 
   return (
@@ -24,7 +23,13 @@ function WriteStory() {
           <legend>Story Details</legend>
           <div className="form-group">
             <label htmlFor="category">Category:</label>
-            <input type="text" id="category" value={categoryName} disabled className="category-field" />
+            <input
+              type="text"
+              id="category"
+              value={categoryName}
+              disabled
+              className="category-field"
+            />
           </div>
           <div className="form-group">
             <label htmlFor="title">Title:</label>
@@ -62,7 +67,10 @@ function WriteStory() {
             placeholder="Write your story here..."
           />
         </div>
-        <button type="submit" className="submit-button">Submit</button>
+        <button type="submit" className="submit-button">
+          Submit
+        </button>
+        <button type="submit" className="submit-button"></button>
       </form>
     </div>
   );
