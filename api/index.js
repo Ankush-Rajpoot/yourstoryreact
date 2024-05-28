@@ -4,6 +4,10 @@ const mongoose = require("mongoose");
 const User = require("./models/User.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const multer = require("multer");
+const uploadMiddleware = multer({ dest: "uploads/" });
+const fs = require("fs");
+const cookieParser = require("cookie-parser");
 
 const saltRounds = 10;
 const secret = "asdfkasdkdsfs";
@@ -12,13 +16,24 @@ const app = express();
 
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 app.use(express.json());
+app.use(cookieParser());
+app.use("/uploads", express.static(__dirname + "/uploads"));
 
 mongoose.connect(
   "mongodb+srv://nakesh1107:nU9W6K0IVOl4qS9E@cluster0.cgenlzm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 );
 
-app.post("/register", async (req, res) => {
+app.post("/register", uploadMiddleware.single("file"), async (req, res) => {
   const { username, email, password } = req.body;
+  console.log(req.body);
+  console.log(req.file);
+
+  const { originalname, path } = req.file;
+  const parts = originalname.split(".");
+  const ext = parts[parts.length - 1];
+  const newPath = path + "." + ext;
+
+  fs.renameSync(path, newPath);
 
   // const hashPassword = await bcrypt.hash(password, saltRounds);
   // console.log("hashpass", hashPassword);
@@ -35,7 +50,9 @@ app.post("/register", async (req, res) => {
       username,
       email,
       password: hashPassword,
+      cover: newPath,
     });
+
     res.json(response);
     console.log(req.body);
   } catch (e) {
@@ -49,16 +66,47 @@ app.post("/login", async (req, res) => {
   const userDoc = await User.findOne({ username });
 
   const passOk = bcrypt.compareSync(password, userDoc.password);
-
+  // console.log("userDoc in login ", userDoc);
   if (passOk) {
     //logged in
     jwt.sign({ username, id: userDoc._id }, secret, {}, (err, token) => {
       if (err) console.log("jwt error: ", err);
-      res.cookie("token", token).json("ok").status(200);
+      res
+        .cookie("token", token)
+        .json({
+          id: userDoc._id,
+          username,
+        })
+        .status(200);
     });
   } else {
     res.status(400).json("wrong credentials: ", username + " " + password);
   }
+});
+
+app.get("/profile", (req, res) => {
+  const { token } = req.cookies;
+  jwt.verify(token, secret, {}, (err, info) => {
+    res.json(info);
+  });
+});
+
+app.get("/userDetails", (req, res) => {
+  console.log(req.body);
+  const { token } = req.cookies;
+  jwt.verify(token, secret, {}, async (err, info) => {
+    // const response = await User.findOne(info.username);
+
+    const { username } = info;
+    console.log(username);
+    const response = await User.findOne({ username });
+    const { email, cover } = response;
+    res.json({ username, email, cover });
+  });
+});
+
+app.post("/logout", (req, res) => {
+  res.cookie("token", "").json("logged out successfully");
 });
 
 app.listen(4000, () => {
