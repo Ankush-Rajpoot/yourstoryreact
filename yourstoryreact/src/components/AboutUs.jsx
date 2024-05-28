@@ -10,7 +10,7 @@ function AboutUs() {
   const sections = [
     {
       title: 'Introduction',
-      content: "YourStory is a unique platform dedicated to sharing real-life stories that inspire, educate, and connect people from all walks of life. Our mission is to create a space where everyone can share their experiences and learning from the journeys of others. Whether it’s a tale of personal growth, a challenging journey, or a moment of triumph, YourStory allows you to connect with others through the power of storytelling.It provides an environment and a digital platform for expressing emotions without hesitation"
+      content: "YourStory is a unique platform dedicated to sharing real-life stories that inspire, educate, and connect people from all walks of life. Our mission is to create a space where everyone can share their experiences and learning from the journeys of others. Whether it’s a tale of personal growth, a challenging journey, or a moment of triumph, YourStory allows you to connect with others through the power of storytelling.It provides an environment and a digital Space for expressing emotions without hesitation."
     },
     {
       title: 'Vision',
@@ -25,7 +25,7 @@ function AboutUs() {
   const activeSectionData = sections.find(section => section.title === activeSection);
   const fullText = activeSectionData.content;
 
-  const highlightedText = fullText.replace(/(inspire|educate|digital platform|connecting|connect|mission|space|experiences|journeys|personal growth|challenging journey|moment of triumph|storytelling|empathy|understanding|belonging|positive impact|real-life experiences|motivation|resilience|success)/g, "<span class='highlight'>$1</span>");
+  const highlightedText = fullText.replace(/(inspire|educate|digital Space|connecting|connect|mission|space|experiences|journeys|personal growth|challenging journey|moment of triumph|storytelling|empathy|understanding|belonging|positive impact|real-life experiences|motivation|resilience|success)/g, "<span class='highlight'>$1</span>");
 
   useEffect(() => {
     let i = hoverPosition[activeSection]; // Start typing from the position where the user left off
