@@ -2,7 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Existing styles */
+/* BodyBackground.css */
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1500px;
+  height: 1500px;
+  z-index: -1; /* Make sure the background stays behind other content */
+}
+
+
 
 #logo-container {
   position: fixed;
@@ -185,6 +195,7 @@ td:hover {
   align-items: center;
   padding: 20px;
   margin-top: 80px; 
+ 
 }
 
 .about-us-card {
@@ -230,14 +241,20 @@ td:hover {
 .about-us-content li {
   margin-bottom: 10px;
 }
-
-/* new inntroduction styling */
+/* new introduction styling */
 .about-us-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   margin-top: 80px;
+}
+
+.intro-icon {
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  margin-right: 20px;
 }
 
 .section-buttons {
@@ -257,9 +274,9 @@ td:hover {
 }
 
 .section-buttons button.active {
-  background-color:  rgb(20, 20, 206);
+  background-color: rgb(20, 20, 206);
 }
-
+/* 
 .about-us-card {
   display: flex;
   flex-direction: column;
@@ -270,12 +287,12 @@ td:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   width: 80%;
-}
+} */
 
 .about-us-content {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row; /* Change to row to align items horizontally */
+  align-items: center;
 }
 
 .about-us-heading {
@@ -289,14 +306,13 @@ td:hover {
 
 .introduction-content {
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
 #introduction-text {
   font-size: 1.1em;
   line-height: 1.6;
-  text-align: center;
+  text-align: left;
   max-width: 600px;
   display: inline-block;
   overflow: hidden;
@@ -307,7 +323,6 @@ td:hover {
   font-weight: bold;
   color: #007AFF;
 }
-
 
 
 /* Write Story Section */
@@ -414,4 +429,275 @@ td:hover {
   background-color:rgb(20, 20, 206);
 }
 
+/* about us read and write */
+.services-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
 
+.service-card {
+  width: 500px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: #edebeb;
+  transition: transform 0.3s ease; /* Add transition for smooth scaling */
+}
+
+.write-icon, .read-icon {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 200px;
+}
+
+.service-card h3 {
+  font-size: 1.5em; 
+  color: #007bff; 
+  font-weight: bold;
+}
+
+.service-card p {
+  font-size: 1.1em;
+  color: #000000;
+}
+
+.write-description, .read-description {
+  font-size: 1.2em;
+  color: #333;
+  line-height: 1.6;
+}
+
+.service-card:hover {
+  transform: scale(1.05); 
+  background-color: #000; /* Change background color on hover */
+}
+
+.service-card:hover h3 {
+  color: #007bff; /* Blue color for h3 */
+}
+
+.service-card:hover .question {
+  color: white; /* Grey color for question */
+}
+
+.service-card:hover .answer {
+  color: #aaaaaa; /* White color for answer */
+  opacity: 0.8; /* Adjust opacity for better readability */
+}
+
+
+/* Apply styles to questions and answers */
+.service-card .question {
+  margin-bottom: 10px; 
+  font-weight: bold; 
+  color: #000000;
+}
+
+/* Initial state for answer: hidden */
+.service-card .answer {
+  display: none;
+  color: rgb(0, 0, 0);
+  opacity: 0;
+  font-size: 1em;
+  transition: opacity 0.3s ease;
+}
+
+/* Answer animation */
+@keyframes showAnswer {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* JavaScript controlled class to show answer */
+.show-answer .answer {
+  display: block;
+  animation: showAnswer 3.5s forwards;
+}
+
+
+
+#WriteServiceButton,#ReadServiceButton{
+  display: block;
+  background-color: #007bff;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  /* padding: 14px 16px; */
+  text-decoration: none;
+  border-radius: 16px;
+  width: 100px;
+  height: 50px;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  font-weight: bold;
+  position: relative;
+}
+#WriteServiceButton:hover {
+  background-color: rgb(20, 20, 206);
+  color: white;
+  border-radius: 10;
+}
+#ReadServiceButton:hover {
+  background-color: rgb(20, 20, 206);
+  color: white;
+  border-radius: 10;
+}
+
+
+
+
+/* team section */
+.team-section {
+  text-align: center;
+  margin-bottom: 40px;
+  background-color: #f9f9f9;
+  
+}
+
+.team-section-heading{
+  font-size: 2em;
+  font-weight: bold;
+  color: #000000;
+}
+
+.image-description-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  max-width: 1200px;
+  background-color: #d2d1d1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 20px; /* Added margin-bottom for spacing */
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+
+.team-card {
+  position: relative;
+  width: 220px;
+  padding: 20px;
+  background-color: #d2d1d1;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.team-card:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 5px 5px rgb(0, 0, 0);
+}
+
+.team-image-container {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #fff;
+  padding: 5px;
+}
+
+
+.team-info {
+  margin-top: 10px;
+  color: #000000;
+  
+}
+
+.team-info h3 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.team-info p {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-links a {
+  color: #000000;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #1DA1F2; /* Adjust the color to match the icon's brand color */
+}
+
+
+
+.team-section-description {
+  flex: 1;
+  padding-right: 20px; /* Space between description and image */
+  font-weight: bold;
+  color: #000000;
+}
+
+.team-section-description  p {
+  font-size: 1em;
+  color: #000000;
+  line-height: 1.5;
+}
+
+.team-icon {
+  width: 200px;
+  height: 200;
+  border-radius: 8px;
+  /* object-fit: cover; */
+  margin-left: 20px; /* Space between image and description */
+}
+
+
+
+/* get involved and contact us  */
+
+form {
+  margin-bottom: 20px;
+}
+
+input[type="email"],
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+
+
+.community-links {
+  display: flex;
+}
+
+.community-links a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.community-links img {
+  width: 40px; /* Adjust icon size as needed */
+  height: 40px; /* Adjust icon size as needed */
+}

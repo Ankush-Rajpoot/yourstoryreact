@@ -6,7 +6,7 @@ import CategoriesRead from "./CategoriesRead"; // Updated import
 import { Link } from "react-router-dom";
 import AuthModal from "./LoginSignUp";
 
-import logo from "../assets/yourstoryimages/logo.png";
+// import logo from "../assets/yourstoryimages/logo.png";
 import logo1 from "../assets/yourstoryimages/logo1.png";
 import { UserContext } from "./UserContext";
 const NavigationBar = () => {

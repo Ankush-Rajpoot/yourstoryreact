@@ -8,6 +8,7 @@ const BodyBackground = () => {
       animationData={bodyanimation}
       loop={true}
       autoplay={true}
+      className="background-animation"
     />
     </>
     

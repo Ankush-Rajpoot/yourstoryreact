@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
-// import BodyBackground from "./components/BodyBackground";
+import BodyBackground from "./components/BodyBackground";
 // import NavigationBar from "./components/NavigationBar";
 import Categories from "./components/CategoriesWrite";
 import { Routes, Route } from "react-router-dom";
@@ -17,8 +17,9 @@ import { UserContextProvider } from "./components/UserContext";
 function App() {
   return (
     <>
-      {/* { <BodyBackground/>} */}
+      
       <UserContextProvider>
+        { <BodyBackground/>}
         <Routes>
           <Route path="/" element={<Layout />}></Route>
           {/* <Route index element={<BodyBackground />}></Route> */}
