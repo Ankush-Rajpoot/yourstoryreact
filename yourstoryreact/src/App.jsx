@@ -13,7 +13,9 @@ import Layout from "./components/Layout";
 import WriteStory from "./components/WriteStory";
 import UserDetails from "./components/UserDetails";
 import { UserContextProvider } from "./components/UserContext";
-
+import StoryPage from "./components/StoryPage";
+import ReadStory from "./components/ReadStory";
+import AboutUs from "./components/AboutUs";
 function App() {
   return (
     <>
@@ -22,18 +24,15 @@ function App() {
         { <BodyBackground/>}
         <Routes>
           <Route path="/" element={<Layout />}></Route>
-          {/* <Route index element={<BodyBackground />}></Route> */}
+          {/* <Route index element={<AboutUs />}></Route> */}
 
           <Route path="/categories" element={<Categories />}></Route>
           <Route path="/register" element={<LoginSignUp />}></Route>
           <Route path="/userDetails" element={<UserDetails />}></Route>
-          {/* <Route path="/SignUpPage" element={<SignUp />}></Route>  */}
-
+          <Route path="/readStory" element={<ReadStory />}></Route>
+          <Route path="/story/:id" element={<StoryPage />}></Route>
+          <Route path="/writeStory" element={<WriteStory />}></Route>
           {/* <Route index element={<Categories open={true} handleCloseModalWrite={() => {}} />} /> */}
-          <Route
-            path="/writestory/:categoryId/:categoryName"
-            element={<WriteStory />}
-          />
         </Routes>
       </UserContextProvider>
     </>

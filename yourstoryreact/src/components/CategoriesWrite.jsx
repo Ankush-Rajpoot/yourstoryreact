@@ -1,32 +1,29 @@
-import React from 'react';
-import Modal from '@mui/material/Modal';
-import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
-
-
-
+import React from "react";
+import Modal from "@mui/material/Modal";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const categories = [
-  { id: 1, name: 'Thrill' },
-  { id: 2, name: 'Action' },
-  { id: 3, name: 'Drama' },
-  { id: 4, name: 'Romance' },
-  { id: 5, name: 'Education' },
-  { id: 6, name: 'Entrepreneurship' },
-  { id: 7, name: 'Adventure' },
-  { id: 8, name: 'Horror' },
-  { id: 9, name: 'Mystery' },
-  { id: 10, name: 'Paranormal' },
-  { id: 11, name: 'Sci-Fi' },
-  { id: 12, name: 'Fantasy' },
-  { id: 13, name: 'Humor' },
-  { id: 14, name: 'Pottery' },
-  { id: 15, name: 'LGBTQ+' },
-  { id: 16, name: 'Leadership' },
-  { id: 17, name: 'Health' },
-  { id: 18, name: 'Cooking' },
-  { id: 19, name: 'Bravery'},
-  { id: 20, name: 'Family'},
+  { id: 1, name: "Thrill" },
+  { id: 2, name: "Action" },
+  { id: 3, name: "Drama" },
+  { id: 4, name: "Romance" },
+  { id: 5, name: "Education" },
+  { id: 6, name: "Entrepreneurship" },
+  { id: 7, name: "Adventure" },
+  { id: 8, name: "Horror" },
+  { id: 9, name: "Mystery" },
+  { id: 10, name: "Paranormal" },
+  { id: 11, name: "Sci-Fi" },
+  { id: 12, name: "Fantasy" },
+  { id: 13, name: "Humor" },
+  { id: 14, name: "Pottery" },
+  { id: 15, name: "LGBTQ+" },
+  { id: 16, name: "Leadership" },
+  { id: 17, name: "Health" },
+  { id: 18, name: "Cooking" },
+  { id: 19, name: "Bravery" },
+  { id: 20, name: "Family" },
 ];
 
 function CategoriesWrite({ open, handleCloseModalWrite, anchorButtonId }) {
@@ -35,17 +32,17 @@ function CategoriesWrite({ open, handleCloseModalWrite, anchorButtonId }) {
   const buttonRect = anchorButton?.getBoundingClientRect();
 
   const modalStyle = {
-    position: 'absolute',
-    top: buttonRect ? `${buttonRect.bottom}px` : '50%',
-    left: buttonRect ? `${buttonRect.left}px` : '50%',
-    transform: buttonRect ? 'translate(-50%, 0)' : 'translate(-50%, -50%)',
-    backgroundColor: 'white',
-    boxShadow: '0px 0px 10px 5px rgba(0, 0, 0, 0.3)',
-    padding: '20px',
+    position: "absolute",
+    top: buttonRect ? `${buttonRect.bottom}px` : "50%",
+    left: buttonRect ? `${buttonRect.left}px` : "50%",
+    transform: buttonRect ? "translate(-50%, 0)" : "translate(-50%, -50%)",
+    backgroundColor: "white",
+    boxShadow: "0px 0px 10px 5px rgba(0, 0, 0, 0.3)",
+    padding: "20px",
   };
 
   const tableStyle = {
-    width: '100%',
+    width: "100%",
   };
 
   const columnCount = 4;
@@ -63,30 +60,37 @@ function CategoriesWrite({ open, handleCloseModalWrite, anchorButtonId }) {
     >
       <div style={modalStyle}>
         <h2 id="categories-modal-title">Categories</h2>
-        <table  style={tableStyle}>
+        <table style={tableStyle}>
           <tbody>
             {rows.map((row, rowIndex) => (
-              <tr  id='tablerow' key={rowIndex}>
+              <tr id="tablerow" key={rowIndex}>
                 {row.map((category) => (
-                  <td  class='btn' key={category.id}>
-                    <Button class='Modalbtn' onClick={() => console.log(category.name)}><Link to={`/writestory/${category.id}/${category.name}`}>{category.name}</Link></Button>
+                  <td class="btn" key={category.id}>
+                    <Button
+                      class="Modalbtn"
+                      onClick={() => console.log(category.name)}
+                    >
+                      <Link to={`/writestory`}>{category.name}</Link>
+                    </Button>
                     {/* <Button class='Modalbtn' onClick={() => history.push(`/write/${category.id}`)}>
                       {category.name}
                     </Button> */}
                   </td>
                 ))}
-                {row.length < columnCount && (
+                {row.length < columnCount &&
                   // Add empty cells to fill up the row
-                  Array.from({ length: columnCount - row.length }, (_, index) => (
-                    <td  key={`empty-${index}`} />
-                  ))
-                )}
+                  Array.from(
+                    { length: columnCount - row.length },
+                    (_, index) => <td key={`empty-${index}`} />
+                  )}
               </tr>
             ))}
           </tbody>
         </table>
-        <Button class='modal-close-button' onClick={handleCloseModalWrite}>Close</Button>
-        <Button class='modal-write-button'>Write</Button>
+        <Button class="modal-close-button" onClick={handleCloseModalWrite}>
+          Close
+        </Button>
+        <Button class="modal-write-button">Write</Button>
       </div>
     </Modal>
   );
