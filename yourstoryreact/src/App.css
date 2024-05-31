@@ -4,7 +4,8 @@
 
 /* BodyBackground.css */
 .background-animation {
-  position: fixed;
+  position: absolute;
+ 
   top: 0;
   left: 0;
   width: 1500px;
@@ -202,7 +203,7 @@ td:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f9f9f9;
+  background-color: rgba(255, 255, 255, 0.5);
   margin: 20px 0;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -700,4 +701,74 @@ textarea {
 .community-links img {
   width: 40px; /* Adjust icon size as needed */
   height: 40px; /* Adjust icon size as needed */
+}
+
+
+
+/* read stories */
+.story-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 800px;
+  padding: 20px;
+  transition: transform 0.3s;
+  overflow: hidden;
+  margin: 10px auto; /* Center the card */
+}
+
+.story-card:hover {
+  transform: scale(1.02);
+}
+
+.story-image-container {
+  flex-shrink: 0;
+  width: 150px; /* Adjust width as needed */
+  height: 150px; /* Adjust height as needed */
+  margin-left: 20px; /* Move image to the right */
+  margin-right: 20px; /* Add spacing between image and content */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.story-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.story-category, .story-author, .story-title, .story-description {
+  margin: 0;
+}
+
+.story-title {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.story-title:hover {
+  text-decoration: underline;
+}
+
+.story-description {
+  color: #333;
+}
+.story-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
 }

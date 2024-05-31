@@ -1,33 +1,30 @@
-// import { format } from "date-fns";
 import { Link } from "react-router-dom";
+
 export default function Story({
   categoryId,
   categoryName,
   title,
   description,
   content,
-  //   createdAt,,
   author,
   cover,
   _id,
 }) {
   return (
-    <div>
-      <h2>CategoryName: {categoryName}</h2>
-      <h2>Author: {author.username}</h2>
-
-      <Link to={`/story/${_id}`}>
-        <h3>Title: {title}</h3>
-      </Link>
-
-      <div>
+    <div className="story-card">
+      <div className="story-info">
+        <h3 className="story-category">Category: {categoryName}</h3>
+        <h3 className="story-author">Author: {author.username}</h3>
+        <Link to={`/story/${_id}`} className="story-title">
+          <h3>Title: {title}</h3>
+        </Link>
+        <p className="story-description">Description: {description}</p>
+      </div>
+      <div className="story-image-container">
         <Link to={`/story/${_id}`}>
-          <img src={`http://localhost:4000/` + cover} />
+          <img src={`http://localhost:4000/` + cover} alt={title} className="story-image"/>
         </Link>
       </div>
-      <h2>Description: {description}</h2>
     </div>
-
-    //   {/* <p>{content}</p> */}
   );
 }

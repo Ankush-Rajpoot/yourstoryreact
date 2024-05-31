@@ -10,7 +10,7 @@ const uploadMiddleware = multer({ dest: "uploads/" });
 
 const fs = require("fs");
 const cookieParser = require("cookie-parser");
-const cloudinary = require("cloudinary").v2;
+// const cloudinary = require("cloudinary").v2;
 const upload = require("./middleware/multer.middleware.js");
 
 const saltRounds = 10;
@@ -24,8 +24,9 @@ app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
 mongoose.connect(
-  "mongodb+srv://nakesh1107:nU9W6K0IVOl4qS9E@cluster0.cgenlzm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  "mongodb+srv://ankushrajpoot2004:R0q9v5yM6FadVpc3@cluster0.tfzxp5a.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 );
+// R0q9v5yM6FadVpc3
 
 app.post("/register", uploadMiddleware.single("file"), async (req, res) => {
   const { username, email, password } = req.body;
